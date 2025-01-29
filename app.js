@@ -19,7 +19,7 @@ app.use(express.static(_env.app.PUBLIC));
 // _connect.pg();
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.sendFile("index.html");
 });
 
 // use of _routes
