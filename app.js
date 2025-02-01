@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import _connect from "./db/connect.js";
 import r from "./routes/router.js";
 import _close from "./db/close.js";
+import initAssociation from "./assciations/association.js";
 
 const app = express();
 const port = _env.app.PORT;
@@ -22,6 +23,7 @@ app.disable("x-powered-by");
 // Connect to databases
 // _connect.mongo();
 // _connect.pg();
+// initAssociation(); // link all the tables
 
 app.get("/", (req, res) => {
   res.sendFile("index.html");
@@ -34,21 +36,24 @@ const server = app.listen(port, () => {
   console.log(`Application started on http://${_env.app.HOST}:${port}`);
 });
 
-const shutDown = () => {
-  // Close running services here
-  server.close();
-  // _close.mongo();
-  // _close.pg();
+// shutdown of the application
+{
+  const shutDown = () => {
+    // Close running services here
+    server.close();
+    // _close.mongo();
+    // _close.pg();
 
-  console.debug("Gracefully closing the application");
-};
+    console.debug("Gracefully closing the application");
+  };
 
-process.on("SIGINT", () => {
-  console.debug("Recieved SIGINT");
-  shutDown();
-});
+  process.on("SIGINT", () => {
+    console.debug("Recieved SIGINT");
+    shutDown();
+  });
 
-process.on("SIGTERM", () => {
-  console.debug("Recieved SIGTERM/(nodemon restarts)");
-  shutDown();
-});
+  process.on("SIGTERM", () => {
+    console.debug("Recieved SIGTERM/(nodemon restarts)");
+    shutDown();
+  });
+}

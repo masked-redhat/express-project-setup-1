@@ -13,12 +13,17 @@
         "start": "node app.js"
     },
     "dependencies": {
+        "bcryptjs": "latest",
         "cookie-parser": "latest",
+        "ecommerce-backend": "file:",
         "express": "latest",
         "express-setup": "file:",
+        "jsonwebtoken": "latest",
         "mongoose": "latest",
         "pg": "latest",
-        "sequelize": "latest"
+        "redis": "latest",
+        "sequelize": "latest",
+        "uuid": "latest"
     },
     "devDependencies": {
         "dotenv": "latest",
