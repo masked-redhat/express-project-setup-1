@@ -11,7 +11,8 @@ const app = express();
 const port = _env.app.PORT;
 
 // application can use cookies
-app.use(cookieParser());
+app.use(express.json()); // for raw json body to be parsed
+app.use(cookieParser()); // for cookies
 app.use(helmet()); // many middleware functions
 
 // public folder
