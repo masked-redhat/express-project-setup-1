@@ -2,20 +2,20 @@ import mongoose from "mongoose";
 import { db } from "./connect.js";
 import _env from "../constants/env.js";
 
-const closeNoSqlConnection = () => {
+const closeNoSqlConnection = async () => {
   try {
-    mongoose.connection.close();
+    await mongoose.connection.close();
 
-    console.log(`Connected to ${_env.db.nosql.CLIENT}`);
+    console.log(`Closed ${_env.db.nosql.CLIENT}`);
   } catch (err) {
     console.log(err);
     console.log(`Failed to close ${_env.db.nosql.CLIENT}`);
   }
 };
 
-const closeSqlConnection = () => {
+const closeSqlConnection = async () => {
   try {
-    db.close();
+    await db.close();
 
     console.log(`Closed ${_env.db.sql.CLIENT}`);
   } catch (err) {

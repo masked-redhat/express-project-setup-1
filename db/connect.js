@@ -12,8 +12,8 @@ const SqlDatabase = new Sequelize(DB.DB, DB.USER, DB.PASS, {
 const stopVal = true,
   interval = 5000;
 
-const connectToNoSqlDb = () => {
-  retry(
+const connectToNoSqlDb = async () => {
+  await retry(
     async () => {
       try {
         await mongoose.connect(_env.db.nosql.URI);
@@ -31,8 +31,8 @@ const connectToNoSqlDb = () => {
   );
 };
 
-const connectToSqlDb = () => {
-  retry(
+const connectToSqlDb = async () => {
+  await retry(
     async () => {
       try {
         await SqlDatabase.authenticate();
