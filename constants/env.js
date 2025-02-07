@@ -9,11 +9,13 @@ const APP = {
 
 // Mongodb as nosql db
 const MONGODB = {
+  CLIENT: "Mongo DB",
   URI: process.env.MONGO_DB_URI,
 };
 
 // Post gre sql database as sql db
 const POSTGRESQL = {
+  CLIENT: "Postgresql DB",
   HOST: process.env.PG_SERVER,
   USER: process.env.PG_USERNAME,
   PASS: process.env.PG_PASSWORD,

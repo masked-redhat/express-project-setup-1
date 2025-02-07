@@ -18,7 +18,7 @@ const connectToNoSqlDb = () => {
       try {
         await mongoose.connect(_env.db.nosql.URI);
 
-        console.log("Connected to Mongo Db");
+        console.log(`Connected to ${_env.db.nosql.CLIENT}`);
         return true;
       } catch (err) {
         console.log(err);
@@ -37,7 +37,7 @@ const connectToSqlDb = () => {
       try {
         await SqlDatabase.authenticate();
 
-        console.log("Connected to Sql Database");
+        console.log(`Connected to ${_env.db.sql.CLIENT}`);
         return true;
       } catch (err) {
         console.log(err);
