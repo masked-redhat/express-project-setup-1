@@ -8,6 +8,7 @@
         "constants",
         "models",
         "associations",
+        "server",
         "app.js",
         "package.json"
     ],
