@@ -3,4 +3,4 @@
 
 const initAssociation = () => {};
 
-export default initAssociation();
+export default initAssociation;
